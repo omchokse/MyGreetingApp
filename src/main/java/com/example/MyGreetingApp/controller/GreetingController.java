@@ -4,7 +4,7 @@ import com.example.MyGreetingApp.model.Greeting;
 import com.example.MyGreetingApp.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping("/greeting")
@@ -15,8 +15,8 @@ public class GreetingController {
         this.greetingService = greetingService;
     }
 
-    @GetMapping("/find/{id}")
-    public Optional<Greeting> findGreetingById(@PathVariable Long id) {
-        return greetingService.findGreetingById(id);
+    @GetMapping("/all")
+    public List<Greeting> getAllGreetings() {
+        return greetingService.getAllGreetings();
     }
 }
